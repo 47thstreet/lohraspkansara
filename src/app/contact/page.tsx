@@ -1,88 +1,108 @@
 "use client";
 
-import type { Metadata } from "next";
-import { useState } from "react";
+import Image from "next/image";
+import Header from "@/components/Header";
+import SocialIcons from "@/components/SocialIcons";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    window.location.href = `mailto:Rick@TheNoiseGroupNY.com?subject=Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
-  };
-
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="max-w-2xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-light uppercase tracking-[0.15em] mb-12 text-center">
-          Contact
-        </h1>
+    <div className="min-h-screen bg-[#111] relative">
+      <Header />
 
-        <div className="text-center mb-12">
-          <p className="text-gray-400 text-sm uppercase tracking-wider mb-2">Booking</p>
-          <a
-            href="mailto:Rick@TheNoiseGroupNY.com"
-            className="text-white text-lg hover:text-gray-300 transition-colors"
-          >
-            Rick@TheNoiseGroupNY.com
-          </a>
-        </div>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-28 pb-16">
+        <div className="flex flex-col md:flex-row gap-12 items-start">
+          {/* Form - Left */}
+          <div className="flex-1 w-full">
+            {/* Booking email */}
+            <p className="text-[#c9a84c] text-[15px] mb-6 font-light">
+              For Bookings:{" "}
+              <a
+                href="mailto:Rick@TheNoiseGroupNY.com"
+                className="hover:text-[#e0c06a] transition-colors"
+              >
+                Rick@TheNoiseGroupNY.com
+              </a>
+            </p>
 
-        <div className="text-center mb-12">
-          <a
-            href="/files/Lohrasp-Kansara-2026-EPK.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block border border-white px-8 py-3 text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300"
-          >
-            Download EPK
-          </a>
-        </div>
-
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <input
-              type="text"
-              placeholder="Name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full bg-transparent border border-gray-700 px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full bg-transparent border border-gray-700 px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
-              required
-            />
-          </div>
-          <div>
-            <textarea
-              placeholder="Message"
-              rows={6}
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full bg-transparent border border-gray-700 px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors resize-none"
-              required
-            />
-          </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              className="bg-white text-black px-10 py-3 text-sm uppercase tracking-[0.2em] font-medium hover:bg-gray-200 transition-colors"
+            {/* EPK Download */}
+            <a
+              href="/files/Lohrasp-Kansara-2026-EPK.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block border border-gray-500 px-6 py-2 text-[12px] uppercase tracking-[0.2em] text-gray-300 hover:bg-white hover:text-black transition-all duration-300 mb-8"
             >
-              Send
-            </button>
+              Download EPK
+            </a>
+
+            {/* Contact Form */}
+            <form
+              className="space-y-3"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+                const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
+                window.location.href = `mailto:Rick@TheNoiseGroupNY.com?subject=Contact from ${name}&body=${encodeURIComponent(message)}`;
+              }}
+            >
+              <input
+                name="name"
+                type="text"
+                placeholder="Name"
+                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
+                required
+              />
+              <input
+                name="email"
+                type="email"
+                placeholder="Email"
+                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
+                required
+              />
+              <input
+                name="phone"
+                type="tel"
+                placeholder="Phone"
+                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
+              />
+              <textarea
+                name="message"
+                placeholder="Message"
+                rows={5}
+                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors resize-none"
+                required
+              />
+              <button
+                type="submit"
+                className="w-full bg-gray-500 hover:bg-gray-400 text-white py-2.5 text-sm uppercase tracking-wider transition-colors"
+              >
+                Send
+              </button>
+            </form>
+
+            <div className="pt-8">
+              <SocialIcons size={22} />
+            </div>
           </div>
-        </form>
+
+          {/* Photo - Right */}
+          <div className="w-full md:w-[45%] flex-shrink-0 hidden md:block">
+            <Image
+              src="/images/bg/contact-lohrasp.jpg"
+              alt="Lohrasp Kansara"
+              width={700}
+              height={900}
+              className="w-full h-auto object-cover"
+              priority
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="text-center py-6 text-xs text-gray-500 space-y-1">
+        <p>&copy; {new Date().getFullYear()} Lohrasp Kansara</p>
+        <p>Powered by Zisko</p>
       </div>
     </div>
   );

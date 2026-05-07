@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SubscribeForm from "@/components/SubscribeForm";
 
 export const metadata: Metadata = {
   title: "Music - Lohrasp Kansara",
@@ -47,41 +50,56 @@ const releases = [
 
 export default function MusicPage() {
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-light uppercase tracking-[0.15em] mb-4 text-center">
-          Music
-        </h1>
-        <h2 className="text-lg text-gray-400 uppercase tracking-[0.2em] mb-12 text-center font-light">
+    <div className="min-h-screen bg-black">
+      {/* Hero Section with background photo */}
+      <div className="relative h-[50vh] md:h-[60vh]">
+        <Image
+          src="/images/bg/lohrasp-kansara-dj.jpg"
+          alt="Lohrasp Kansara"
+          fill
+          className="object-cover object-top"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+        <Header />
+      </div>
+
+      {/* Releases Section */}
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-12">
+        <h2 className="text-center text-[13px] uppercase tracking-[0.35em] text-gray-300 mb-10 font-light">
           New Releases
         </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5">
           {releases.map((release, i) => {
-            const Wrapper = release.link ? "a" : "div";
-            const linkProps = release.link
+            const isLinked = !!release.link;
+            const Tag = isLinked ? "a" : "div";
+            const linkProps = isLinked
               ? { href: release.link, target: "_blank" as const, rel: "noopener noreferrer" }
               : {};
 
             return (
-              <Wrapper key={i} {...linkProps} className="album-card block group">
-                <div className="aspect-square relative overflow-hidden bg-gray-900">
+              <Tag key={i} {...linkProps} className="album-card block cursor-pointer">
+                <div className="aspect-square relative overflow-hidden bg-black">
                   <Image
                     src={release.image}
                     alt={release.title}
                     fill
-                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                    sizes="(max-width: 640px) 50vw, 33vw"
                     className="object-cover"
+                    loading={i < 12 ? "eager" : "lazy"}
+                    priority={i < 6}
                   />
                 </div>
-                <p className="mt-2 text-xs text-gray-400 text-center group-hover:text-white transition-colors truncate">
-                  {release.title}
-                </p>
-              </Wrapper>
+              </Tag>
             );
           })}
         </div>
       </div>
+
+      {/* Subscribe + Footer */}
+      <SubscribeForm />
+      <Footer />
     </div>
   );
 }

@@ -18,15 +18,15 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header className="absolute top-0 left-0 right-0 z-50">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
         <Link href="/">
           <Image
             src="/images/logo-white.png"
             alt="Lohrasp Kansara"
             width={200}
             height={57}
-            className="h-10 w-auto"
+            className="h-12 w-auto"
             priority
           />
         </Link>
@@ -37,8 +37,8 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm uppercase tracking-[0.2em] transition-colors hover:text-gray-300 ${
-                pathname === link.href ? "text-white" : "text-gray-400"
+              className={`text-[13px] uppercase tracking-[0.2em] transition-colors hover:text-white ${
+                pathname === link.href ? "text-white" : "text-gray-300"
               }`}
             >
               {link.label}
@@ -48,35 +48,31 @@ export default function Header() {
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-[5px] p-2 z-50"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-0.5 bg-white transition-transform ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-transform ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span className={`block w-6 h-[2px] bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+          <span className={`block w-6 h-[2px] bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-6 h-[2px] bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <nav className="md:hidden bg-black/95 border-t border-gray-800">
-          <div className="flex flex-col items-center py-6 gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={`text-sm uppercase tracking-[0.2em] transition-colors hover:text-gray-300 ${
-                  pathname === link.href ? "text-white" : "text-gray-400"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
-      )}
+      {/* Mobile Menu Overlay */}
+      <div className={`md:hidden fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center gap-8 transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={() => setMenuOpen(false)}
+            className={`text-xl uppercase tracking-[0.25em] transition-colors hover:text-white ${
+              pathname === link.href ? "text-white" : "text-gray-400"
+            }`}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
     </header>
   );
 }
