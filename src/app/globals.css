@@ -15,10 +15,30 @@ body {
   background: #000;
   color: #fff;
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .album-card:hover {
+    transform: none;
+  }
 }
 
 /* Custom scrollbar */
@@ -35,8 +55,30 @@ html {
 
 /* Album hover */
 .album-card {
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+  cursor: pointer;
 }
 .album-card:hover {
   transform: scale(1.03);
+  opacity: 0.9;
+}
+
+/* Focus visible states for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Clickable elements */
+a, button, [role="button"] {
+  cursor: pointer;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }
