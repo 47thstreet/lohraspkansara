@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const releases = [
-  { title: "Me Quemo", image: "/images/releases/me-quemo.jpg", link: "" },
+  { title: "Me Quemo", image: "/images/releases/me-quemo.jpg", link: "https://www.beatport.com/release/me-quemo/6425494" },
   { title: "Choose to Lie", image: "/images/releases/choose-to-lie.jpg", link: "https://www.beatport.com/release/choose-to-lie/5362077" },
   { title: "Pra Nao Dizer Que Nao Falei Das Flores", image: "/images/releases/pra-nao-dizer.jpg", link: "https://www.beatport.com/release/pra-nao-dizer-que-nao-falei-das-flores/5827808" },
   { title: "I Follow Rivers", image: "/images/releases/i-follow-rivers.jpg", link: "https://open.spotify.com/album/51uoBR9gpOGzuuH8Rho3as" },
@@ -45,7 +45,7 @@ const releases = [
   { title: "Get Down", image: "/images/releases/get-down.jpg", link: "https://open.spotify.com/track/2na0npmdmvRCDawKwBurpv" },
   { title: "Thinking", image: "/images/releases/thinking.jpg", link: "https://open.spotify.com/track/0xHEN5Zs8BMnl9qIMkGy4v" },
   { title: "I Can't Tell You", image: "/images/releases/i-cant-tell-you.jpg", link: "https://open.spotify.com/track/2lJtp0e3IXJyiFyjA9sCXg" },
-  { title: "Feel The Love", image: "/images/releases/feel-the-love.jpg", link: "" },
+  { title: "Feel The Love", image: "/images/releases/feel-the-love.jpg", link: "https://www.beatport.com/release/feel-the-love/3107789" },
 ];
 
 export default function MusicPage() {
