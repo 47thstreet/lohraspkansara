@@ -22,7 +22,7 @@ export default function SocialIcons({ size = 22, className = "" }: { size?: numb
           className="text-white hover:text-gray-300 transition-colors"
           aria-label={social.label}
         >
-          <social.icon size={size} />
+          <social.icon size={size} aria-hidden="true" />
         </a>
       ))}
     </div>

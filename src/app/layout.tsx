@@ -51,6 +51,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${montserrat.variable} h-full antialiased`}>
+      <head>
+        <link rel="preload" href="/images/bg/lohrasp-djing.jpg" as="image" />
+        <link rel="preload" href="/images/logo-white.png" as="image" />
+      </head>
       <body className="min-h-full flex flex-col bg-black text-white font-[Montserrat,Arial,Helvetica,sans-serif]">
         {children}
       </body>

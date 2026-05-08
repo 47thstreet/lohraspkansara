@@ -31,7 +31,7 @@ export default function Home() {
         playsInline
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover md:hidden"
-        poster="/images/bg/lk-reel-cover.png"
+        poster="/images/bg/lk-reel-cover.jpg"
       >
         <source src="/videos/highlight-reel.mp4" type="video/mp4" />
       </video>

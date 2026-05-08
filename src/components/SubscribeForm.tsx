@@ -14,12 +14,12 @@ export default function SubscribeForm() {
           <input
             type="text"
             placeholder="Name"
-            className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
+            className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
           />
           <input
             type="email"
             placeholder="Email"
-            className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
+            className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
           />
           <button
             type="submit"
