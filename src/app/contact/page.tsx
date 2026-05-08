@@ -6,7 +6,7 @@ import SocialIcons from "@/components/SocialIcons";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-[#111] relative">
+    <main className="min-h-screen bg-[#111] relative">
       <Header />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-28 pb-16">
@@ -104,6 +104,6 @@ export default function ContactPage() {
         <p>&copy; {new Date().getFullYear()} Lohrasp Kansara</p>
         <p>Powered by Zisko</p>
       </div>
-    </div>
+    </main>
   );
 }

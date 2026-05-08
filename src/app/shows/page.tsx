@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ShowsPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black">
       {/* Hero Section with stage photo */}
       <div className="relative h-[55vh] md:h-[65vh]">
         <Image
@@ -35,6 +35,6 @@ export default function ShowsPage() {
       {/* Subscribe form */}
       <SubscribeForm />
       <Footer />
-    </div>
+    </main>
   );
 }

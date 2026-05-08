@@ -50,7 +50,7 @@ const releases = [
 
 export default function MusicPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black">
       {/* Hero Section with background photo */}
       <div className="relative h-[50vh] md:h-[60vh]">
         <Image
@@ -100,6 +100,6 @@ export default function MusicPage() {
       {/* Subscribe + Footer */}
       <SubscribeForm />
       <Footer />
-    </div>
+    </main>
   );
 }

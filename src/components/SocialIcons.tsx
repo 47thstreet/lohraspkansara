@@ -1,4 +1,5 @@
 import { FaInstagram, FaFacebookF, FaYoutube, FaSpotify, FaSoundcloud } from "react-icons/fa";
+import { SiBeatport } from "react-icons/si";
 
 const socialLinks = [
   { href: "https://instagram.com/lohraspkansara/", icon: FaInstagram, label: "Instagram" },
@@ -6,6 +7,7 @@ const socialLinks = [
   { href: "https://youtube.com/user/THEDJLEXPERIENCE", icon: FaYoutube, label: "YouTube" },
   { href: "https://open.spotify.com/artist/33puj2nZF4OKSccBLaf1oy", icon: FaSpotify, label: "Spotify" },
   { href: "https://soundcloud.com/lohraspkansara", icon: FaSoundcloud, label: "SoundCloud" },
+  { href: "https://www.beatport.com/artist/lohrasp-kansara/691498", icon: SiBeatport, label: "Beatport" },
 ];
 
 export default function SocialIcons({ size = 22, className = "" }: { size?: number; className?: string }) {

@@ -4,7 +4,7 @@ export default function SubscribeForm() {
   return (
     <div className="bg-black py-12 px-6">
       <div className="max-w-md mx-auto text-center">
-        <h3 className="text-[11px] uppercase tracking-[0.3em] text-gray-300 mb-8 font-light">
+        <h3 className="text-[11px] uppercase tracking-[0.3em] text-gray-200 mb-8 font-light">
           Subscribe to get notified of new releases, upcoming shows, news &amp; more
         </h3>
         <form

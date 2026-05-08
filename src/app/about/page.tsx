@@ -14,7 +14,7 @@ export default function AboutPage() {
       <div className="min-h-screen bg-black/80">
         <Header />
 
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-28 pb-16">
+        <main className="max-w-[1400px] mx-auto px-6 md:px-10 pt-28 pb-16">
           <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
             {/* Bio Text - Left */}
             <div className="flex-1 space-y-5">
@@ -56,7 +56,7 @@ export default function AboutPage() {
               />
             </div>
           </div>
-        </div>
+        </main>
       </div>
     </div>
   );
