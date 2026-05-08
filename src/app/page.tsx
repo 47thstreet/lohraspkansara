@@ -9,7 +9,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <main className="relative h-screen w-full overflow-hidden">
+    <main className="relative h-[100dvh] w-full overflow-hidden">
       {/* Background Video - Desktop */}
       <video
         autoPlay
@@ -42,7 +42,7 @@ export default function Home() {
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col">
         {/* Mobile: Logo top-left + hamburger */}
-        <div className="md:hidden px-5 pt-5 flex items-center justify-between">
+        <div className="md:hidden px-5 pt-5 flex items-center justify-between relative z-50">
           <Link href="/">
             <Image
               src="/images/logo-white.png"
@@ -54,7 +54,7 @@ export default function Home() {
             />
           </Link>
           <button
-            className="flex flex-col gap-[5px] p-2 z-50"
+            className="flex flex-col gap-[5px] p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -65,7 +65,7 @@ export default function Home() {
         </div>
 
         {/* Mobile Menu Overlay */}
-        <div className={`md:hidden fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center gap-8 transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+        <div className={`md:hidden fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-8 transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
           {[
             { href: "/about", label: "About" },
             { href: "/music", label: "Music" },
@@ -115,9 +115,9 @@ export default function Home() {
           </nav>
         </div>
 
-        {/* Social Icons - bottom left on desktop, bottom center on mobile */}
-        <div className="pb-8 px-6 md:px-10">
-          <SocialIcons size={22} className="md:justify-start justify-center" />
+        {/* Social Icons — safe from bottom edge */}
+        <div className="pb-12 md:pb-8 px-6 md:px-10">
+          <SocialIcons size={24} className="md:justify-start justify-center" />
         </div>
       </div>
     </main>
