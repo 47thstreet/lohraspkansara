@@ -30,6 +30,7 @@ export default function ShowsPage() {
         <h1 className="text-xl md:text-2xl uppercase tracking-[0.25em] font-light mb-8">
           Upcoming Shows &amp; Events
         </h1>
+        <h2 className="sr-only">Subscribe for Updates</h2>
       </div>
 
       {/* Subscribe form */}

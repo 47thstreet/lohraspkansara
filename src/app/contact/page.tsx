@@ -49,27 +49,27 @@ export default function ContactPage() {
                 name="name"
                 type="text"
                 placeholder="Name"
-                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
+                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-300 focus:outline-none focus:border-white transition-colors"
                 required
               />
               <input
                 name="email"
                 type="email"
                 placeholder="Email"
-                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
+                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-300 focus:outline-none focus:border-white transition-colors"
                 required
               />
               <input
                 name="phone"
                 type="tel"
                 placeholder="Phone"
-                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
+                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-300 focus:outline-none focus:border-white transition-colors"
               />
               <textarea
                 name="message"
                 placeholder="Message"
                 rows={5}
-                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors resize-none"
+                className="w-full bg-black border border-gray-600 px-4 py-2.5 text-sm text-white placeholder-gray-300 focus:outline-none focus:border-white transition-colors resize-none"
                 required
               />
               <button
